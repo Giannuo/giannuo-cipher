@@ -1,6 +1,5 @@
 # 密码工具库（giannuo-cipher）
 ## 1. 它是一个密码工具库，包含了常用的AES、DES、DESede、RSA等算法
-# 密码工具库（giannuo-cipher）
 ## 2. 它基于JDK8
 ## 3. 它封装了AES加密/解密（采用默认`AES/CBC/PKCS5Padding`的算法/工作模式/填充方式）
 你可以这么用
@@ -81,4 +80,3 @@ MD5Util.SINGLETON.fileDigest(String)
 SHAUtil.SINGLETON.fileDigest(File)
 SHAUtil.SINGLETON.fileDigest(String)
 ```
-"# giannuo-cipher" 

@@ -27,3 +27,4 @@ target
 *.orig
 /.idea/
 /target/
+/.idea/copyright/profiles_settings.xml

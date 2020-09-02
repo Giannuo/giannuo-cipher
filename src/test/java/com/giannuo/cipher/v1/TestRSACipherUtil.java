@@ -19,7 +19,6 @@ import com.giannuo.cipher.Base64KeyPair;
 import com.giannuo.cipher.RSACipherUtil;
 import com.giannuo.cipher.RSADecrypt;
 import com.giannuo.cipher.RSAEncrypt;
-import org.junit.Assert;
 import org.junit.*;
 import org.junit.runners.MethodSorters;
 
@@ -70,6 +69,7 @@ public class TestRSACipherUtil {
         //1.如果抛出的异常与设定的异常相同，则这一步的断言成功并返回一个异常的顶级父类
         Throwable exception = assertThrows(RuntimeException.class, () -> {
             Base64KeyPair keyPair = util.generateBase64Key(511);
+            System.out.println(keyPair);
         });
         //2.接下来便可以对返回的异常进行一些其他的测试
         //比如对异常的信息进行断言测试等。。
@@ -115,7 +115,7 @@ public class TestRSACipherUtil {
         System.out.println("base64 public key : " + base64PublicKey);
         System.out.println("base64 private key : " + base64PrivateKey);
         Charset charset = StandardCharsets.UTF_8;
-        String charsetName = StandardCharsets.UTF_8.displayName();
+        String charsetName = charset.displayName();
 
         System.out.println("cipher Encrypt start");
         String secretData = util.encrypt(data, new RSAEncrypt(base64PublicKey, charsetName));
@@ -123,7 +123,7 @@ public class TestRSACipherUtil {
         System.out.println("cipher Encrypt end");
 
         System.out.println("cipher Decrypt start");
-        String unsecretData = util.decrypt(secretData, new RSADecrypt(base64PrivateKey, charsetName));
+        String unsecretData = util.decrypt(secretData, () -> new RSADecrypt(base64PrivateKey, charsetName));
         System.out.println("cipher Decrypt - unsecret data : " + unsecretData);
         System.out.println("cipher Decrypt end");
 

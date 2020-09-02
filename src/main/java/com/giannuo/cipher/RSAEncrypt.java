@@ -16,7 +16,7 @@
 package com.giannuo.cipher;
 
 import com.giannuo.util.Assert;
-import com.sun.istack.internal.NotNull;
+import org.jetbrains.annotations.NotNull;
 
 import javax.crypto.Cipher;
 import java.nio.charset.Charset;
@@ -103,8 +103,9 @@ public final class RSAEncrypt extends CipherEncrypt implements ICommonBlockHandl
      * @return 加密结果
      * @since 1.0
      */
+    @NotNull
     @Override
-    public byte[] encrypt(byte[] data) {
+    public byte[] encrypt(@NotNull byte[] data) {
         cipherInit();
         return rsaBlockCodec(cipher, Cipher.ENCRYPT_MODE, data, ((RSAPublicKey) publicKey).getModulus().bitLength());
     }

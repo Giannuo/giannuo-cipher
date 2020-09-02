@@ -16,7 +16,7 @@
 package com.giannuo.cipher;
 
 import com.giannuo.util.Assert;
-import com.sun.istack.internal.NotNull;
+import org.jetbrains.annotations.NotNull;
 
 import java.nio.charset.Charset;
 import java.security.KeyPair;
@@ -67,7 +67,7 @@ public interface IAsymmetricCipherUtil {
      * @since 1.0
      */
     @NotNull
-    default Base64KeyPair generateBase64Key(@NotNull int keySize) {
+    default Base64KeyPair generateBase64Key(int keySize) {
         try {
             // KeyGenerator : 秘钥生成器
             KeyPairGenerator keyPairGen = KeyPairGenerator.getInstance(getAlgorithm());
@@ -92,7 +92,7 @@ public interface IAsymmetricCipherUtil {
      * @since 1.0
      */
     @NotNull
-    default Base64KeyPair generateBase64Key(@NotNull int keySize, @NotNull byte[] seed) {
+    default Base64KeyPair generateBase64Key(int keySize, @NotNull byte[] seed) {
         try {
             // KeyGenerator : 秘钥生成器
             KeyPairGenerator keyPairGen = KeyPairGenerator.getInstance(getAlgorithm());
@@ -118,7 +118,7 @@ public interface IAsymmetricCipherUtil {
      * @return Base64秘钥对
      * @since 1.0
      */
-    default Base64KeyPair generateBase64Key(@NotNull int keySize, @NotNull String seed, @NotNull Charset charset) {
+    default Base64KeyPair generateBase64Key(int keySize, @NotNull String seed, @NotNull Charset charset) {
         return generateBase64Key(keySize, seed.getBytes(charset));
     }
 

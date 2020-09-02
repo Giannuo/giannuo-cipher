@@ -16,7 +16,7 @@
 package com.giannuo.cipher;
 
 import com.giannuo.util.Assert;
-import com.sun.istack.internal.NotNull;
+import org.jetbrains.annotations.NotNull;
 
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
@@ -65,7 +65,7 @@ public interface ISymmetricCipherUtil {
      * @since 1.0
      */
     @NotNull
-    default String generateBase64Key(@NotNull int keySize) {
+    default String generateBase64Key(int keySize) {
         try {
             // KeyGenerator : 秘钥生成器
             KeyGenerator keyGenerator = KeyGenerator.getInstance(getKeyGeneratorAlgorithm());
@@ -133,7 +133,7 @@ public interface ISymmetricCipherUtil {
      * @param destFilePath   加密结果数据文件路径
      * @param encrypt        加密器
      * @return 加密结果文件
-     * @see  ISymmetricCipherUtil#encryptFile(String, String, CipherEncrypt)
+     * @see ISymmetricCipherUtil#encryptFile(String, String, CipherEncrypt)
      * @since 1.0
      */
     default File encryptFile(@NotNull String sourceFilePath, @NotNull String destFilePath, @NotNull CipherEncrypt encrypt) {

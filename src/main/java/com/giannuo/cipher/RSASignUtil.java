@@ -16,7 +16,7 @@
 package com.giannuo.cipher;
 
 import com.giannuo.util.Assert;
-import com.sun.istack.internal.NotNull;
+import org.jetbrains.annotations.NotNull;
 
 import java.nio.charset.Charset;
 import java.security.KeyFactory;
